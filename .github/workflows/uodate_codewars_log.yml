@@ -1,11 +1,13 @@
 name: Codewars Contributions
 
-on: repository_dispatch
+on: 
+  repository_dispatch:
+    types: [codewars_update]
 
 jobs:
-  check-dist:
+  check-codewars:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v3
       - name: Set Node.js 16.x
