@@ -1,0 +1,23 @@
+name: Codewars Contributions
+
+on: repository_dispatch
+
+jobs:
+  check-dist:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set Node.js 16.x
+        uses: actions/setup-node@v3.5.1
+        with:
+          node-version: 16.x
+      - name: Install dependencies
+        run: npm ci
+      - name: Get Codewars Completed
+        run: npm run get_codewars_completed -id=${{ github.actor }}
+      - name: Commit output
+        uses: stefanzweifel/git-auto-commit-action@v4.2.0
+        with:
+          commit_message: "Update Codewars Completed"
+          branch: main
