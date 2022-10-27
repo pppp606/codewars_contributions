@@ -2,11 +2,16 @@
 リポジトリをあなたのスペースにフォークしてください。
 
 ## Step2 create a personal access token
-トークンはGitHubで Settings > Developer settings > Personal access tokens で作成できます。
+アクションを実行する際に必要なトークンを作成します
 
-- トークンは大切に扱ってください
+[https://github.com/settings/tokens](https://github.com/settings/tokens)
+
+- トークンは安全を考慮して扱ってください
 - actionの実行にrepoスコープが必要です
 - 期間が短い方が安全ですが、定期期なメンテナンスが必要になります
+
+[https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token]url(https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+
 
 ## Step3 create AWS Lambda function
 残念ながら Codewars に用意されている webhook の機能だけでは github action を実行する事ができません。
@@ -16,7 +21,8 @@ AWS Lambda で webhook を受け取り、github action を実行する為の関�
 
 
 ### コードを保存してデプロイ
-```
+
+```js
 const https = require('https');
 
 const token = '___yourToken___';
