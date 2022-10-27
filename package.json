@@ -1,0 +1,15 @@
+{
+  "name": "codewars_github_contributions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "codewars": "node index.js $npm_package_config_user_id"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "node-fetch": "^3.2.10"
+  }
+}
