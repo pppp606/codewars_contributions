@@ -18,8 +18,8 @@ jobs:
         run: npm ci
       - name: Get Codewars Completed
         run: npm run codewars -user_id=${{ github.actor }}
-      - name: Commit output
-        uses: stefanzweifel/git-auto-commit-action@v4.2.0
+      - name: Git Auto Commit
+        uses: stefanzweifel/git-auto-commit-action@v4.15.3
         with:
           commit_message: "Update Codewars Completed"
           branch: main
