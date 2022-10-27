@@ -15,7 +15,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Get Codewars Completed
-        run: npm run get_codewars_completed -id=${{ github.actor }}
+        run: npm run codewars -id=${{ github.actor }}
       - name: Commit output
         uses: stefanzweifel/git-auto-commit-action@v4.2.0
         with:
