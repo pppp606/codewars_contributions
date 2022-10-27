@@ -2,7 +2,7 @@ import fetch from "node-fetch"
 import crypto from "crypto"
 import fs from "fs"
 
-const userId = process.env.npm_package_config_user_id;
+const userId = process.env.npm_config_user_id;
 
 const getCompleted = (page) => {
   return new Promise((resolve, reject) => {
@@ -23,7 +23,7 @@ const getCompleted = (page) => {
 };
 
 const writeDigest = (text) => {
-  const digest = crypto.createHash('sha256').update(text).digest('hex')
+  const digest = crypto.createHash('sha256').update(text).digest('hex');
   fs.writeFileSync(".log", `completes: ${digest}`);
 }
 
@@ -40,10 +40,8 @@ const main = async () => {
       nextPage = false
     }
   }
-
   const text = JSON.stringify(completes);
-  writeDigest(text)
-  
+  writeDigest(text)  
 }
 
 main();
