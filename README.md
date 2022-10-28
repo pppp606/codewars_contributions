@@ -11,9 +11,10 @@ Creates the tokens needed when performing an action
 
 [Github > Settings > Developer settings > Personal access tokens (classic)](https://github.com/settings/tokens)
 
-- Tokens must be handled with security in mind
-- Requires repo scope for action execution
-- Shorter duration is safer, but periodic maintenance is required
+> **Note**
+> - Tokens must be handled with security in mind
+> - Requires repo scope for action execution
+> - Shorter duration is safer, but periodic maintenance is required
 
 ### Step3 Create AWS Lambda function
 Unfortunately, the webhook function provided in Codewars is not enough to execute github actions. We need to prepare a function to receive webhooks and execute github actions in AWS Lambda.
@@ -79,7 +80,9 @@ exports.handler = async (event) => {
 #### 3. Copy function URL
 The URL to execute the Lambda function will be displayed. Copy this URL.
 
-※ It is also possible to use cron to perform periodic execution without using a Lambda function or any other function. In this case, multiple changes that occur within the interval of the periodic execution will be reflected at once.
+> **Note**
+> 
+> It is also possible to use cron to perform periodic execution without using a Lambda function or any other function. In this case, multiple changes that > occur within the interval of the periodic execution will be reflected at once.
 
 ### Step4 Set Webhook URL in Codewars
 Specifies the URL of the Lambda function
