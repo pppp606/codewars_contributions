@@ -1,33 +1,35 @@
-## Step1 リポジトリをフォーク
-リポジトリをあなたのスペースにフォークしてください。
+# GitHub Contributions from Codewars
+A repository for reflecting Codewars activities in the github contributions count.
 
-## Step2 create a personal access token
-アクションを実行する際に必要なトークンを作成します
+## 🔨 Usage
 
-[https://github.com/settings/tokens](https://github.com/settings/tokens)
+### Step1 Use as a repository template
+To start, just click the Use template link (or the green button).
 
-- トークンは安全を考慮して扱ってください
-- actionの実行にrepoスコープが必要です
-- 期間が短い方が安全ですが、定期期なメンテナンスが必要になります
+### Step2 Create a personal access token
+Creates the tokens needed when performing an action
 
-[https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token]url(https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+[Github > Settings > Developer settings > Personal access tokens (classic)](https://github.com/settings/tokens)
+
+- Tokens must be handled with security in mind
+- Requires repo scope for action execution
+- Shorter duration is safer, but periodic maintenance is required
+
+### Step3 Create AWS Lambda function
+Unfortunately, the webhook function provided in Codewars is not enough to execute github actions. We need to prepare a function to receive webhooks and execute github actions in AWS Lambda.
+
+#### 1. Create Lambda function
 
 
-## Step3 create AWS Lambda function
-残念ながら Codewars に用意されている webhook の機能だけでは github action を実行する事ができません。
-AWS Lambda で webhook を受け取り、github action を実行する為の関数を用意します。
-
-### Lambda関数を作成
-
-
-### コードを保存してデプロイ
+#### 2. Deploy function
 
 ```js
 const https = require('https');
 
+// TODO: Change it to match your env
 const token = '___yourToken___';
 const githubId = '___yourGithubId___';
-const repoName = 'codewars_contributions';
+const repoName = '___yourRepositoryName___';
 
 const request = () => {
   const url = `https://api.github.com/repos/${githubId}/${repoName}/dispatches`;
@@ -74,15 +76,15 @@ exports.handler = async (event) => {
 };
 ```
 
-### URLをコピー
-Lambda関数を実行する為のURLが表示されます。このURLをコピーしておきます。
+#### 3. Copy function URL
+The URL to execute the Lambda function will be displayed. Copy this URL.
 
-※ Lambda関数やそれに変わる機能を使わず、cronで定期的に実行する事も可能です。その場合、定期実行のインターバル内で起こった複数の変更を一度に反映する事になります。
+※ It is also possible to use cron to perform periodic execution without using a Lambda function or any other function. In this case, multiple changes that occur within the interval of the periodic execution will be reflected at once.
 
-## Step4 Cordewars に webhook を設定
-Lambda関数のURLを指定します
+### Step4 Set Webhook URL in Codewars
+Specifies the URL of the Lambda function
 
-## Complete!
-kataを解いてみてください。
-解いたら webhook が発火して github action が実行されます。
-contributions の数が増えれば成功です。
+[Codewars > Account Setting](https://www.codewars.com/users/edit)
+
+## 🎉 Complete
+When the activity is recorded in Codewars, a webhook is fired and the github action is executed.
