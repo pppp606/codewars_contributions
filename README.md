@@ -20,9 +20,14 @@ Creates the tokens needed when performing an action
 Unfortunately, the webhook function provided in Codewars is not enough to execute github actions. We need to prepare a function to receive webhooks and execute github actions in AWS Lambda.
 
 #### 1. Create Lambda function
+Log in to AWS and go to lambda > Functions > Create Function. Create a function with the following settings.
 
+![lambda](https://user-images.githubusercontent.com/7203958/199429922-2672fbd9-1307-4e10-ba61-b77e3fcd62e1.png)
 
 #### 2. Deploy function
+Paste the following code into index.js and deploy.
+
+※Rewrite the variables in line 4-6 to match your environment.
 
 ```js
 const https = require('https');
@@ -88,6 +93,7 @@ The URL to execute the Lambda function will be displayed. Copy this URL.
 Specifies the URL of the Lambda function
 
 [Codewars > Account Setting](https://www.codewars.com/users/edit)
+![webhook](https://user-images.githubusercontent.com/7203958/199430339-8ac2e9a8-8a9e-4cfa-8bc6-e5f71c1bc914.png)
 
 ## 🎉 Complete
 When the activity is recorded in Codewars, a webhook is fired and the github action is executed.
