@@ -4,7 +4,7 @@ A repository for reflecting Codewars activities in the github contributions coun
 ## 🔨 Usage
 
 ### Step1 Use as a repository template
-To start, just click the Use template link (or the green button).
+To start, just click the [Use this template link](https://github.com/pppp606/codewars_contributions/generate). Create a new repository
 
 ### Step2 Create a personal access token
 Creates the tokens needed when performing an action
