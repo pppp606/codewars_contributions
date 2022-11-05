@@ -7,7 +7,7 @@ A repository for reflecting Codewars activities in the github contributions coun
 To start, just click the [Use this template link](https://github.com/pppp606/codewars_contributions/generate). Create a new repository
 
 ### Step2 Create a personal access token
-Creates the tokens needed when performing an action
+Creates the tokens needed when performing an action. `repo(Full control of private repositories)` scopes are required
 
 [Github > Settings > Developer settings > Personal access tokens (classic)](https://github.com/settings/tokens)
 
