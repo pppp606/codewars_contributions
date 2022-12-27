@@ -7,13 +7,12 @@ A repository for reflecting Codewars activities in the github contributions coun
 To start, just click the [Use this template link](https://github.com/pppp606/codewars_contributions/generate). Create a new repository
 
 ### Step2 Create a personal access token
-Creates the tokens needed when performing an action. `repo(Full control of private repositories)` scopes are required
+Creates the tokens needed when performing an action. Make sure to grant permissions only to repositories you create 🔐
 
-[Github > Settings > Developer settings > Personal access tokens (classic)](https://github.com/settings/tokens)
+[Github > Settings > Developer settings > Fine-grained personal access tokens](https://github.com/settings/tokens?type=beta)
 
 > **Note**
 > - Tokens must be handled with security in mind
-> - Requires repo scope for action execution
 > - Shorter duration is safer, but periodic maintenance is required
 
 ### Step3 Create AWS Lambda function
